@@ -18,22 +18,17 @@ try:
         # Retrieve the image data from Kafka message
         image_data = message.value
         
-        # Retrieve the original image filename from Kafka message's metadata
-        image_filename = message.key.decode('utf-8')
-        
-        # Generate a unique filename based on the original filename and message offset
-        image_filename_unique = f'{image_filename}_{message.offset:04d}.jpg'
-        image_path = os.path.join(image_directory, image_filename_unique)
+        # Generate a unique image filename
+        image_filename = os.path.join(image_directory, f'{kafka_topic}_{message.offset}.jpg')
         
         # Save the image to the local file system
-        with open(image_path, 'wb') as image_file:
+        with open(image_filename, 'wb') as image_file:
             image_file.write(image_data)
         
-        print(f"Image received and saved as '{image_path}'")
+        print(f"Image received and saved as '{image_filename}'")
         
 except KeyboardInterrupt:
     print("Consumer interrupted by user.")
 
 finally:
     consumer.close()
-
