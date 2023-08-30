@@ -15,7 +15,7 @@ camera = picamera.PiCamera()
 try:
     while True:
         # Capture an image from the camera
-        image_filename = 'image_pi1.jpg'  # You can customize the image filename set name role image_{pi name}
+        image_filename = 'image_pi.jpg'  # You can customize the image filename set name role image_{pi name}
         camera.capture(image_filename)
         
         # Read the captured image
@@ -23,7 +23,7 @@ try:
             image_data = image_file.read()
         
         # Send the image to Kafka topic
-        producer.send(kafka_topic, value=image_data)
+        producer.send(kafka_topic, key='image_pi.jpg', value=image_data)
         producer.flush()
         
         print(f"Image sent to Kafka topic '{kafka_topic}'")
