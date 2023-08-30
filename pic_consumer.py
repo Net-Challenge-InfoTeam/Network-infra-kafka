@@ -1,38 +1,43 @@
-import time
-import picamera
-from kafka import KafkaProducer
+from kafka import KafkaConsumer
+import os
 
 # Kafka configuration
 kafka_bootstrap_servers = '10.32.103.147:9092'  # Replace with your Kafka broker address
-kafka_topic = 'pi1' # 정한 토픽을 삽입
+kafka_topic = 'pi1' # 토익 통일
 
-# Create a Kafka producer instance
-producer = KafkaProducer(bootstrap_servers=kafka_bootstrap_servers)
+# Create a Kafka consumer instance
+consumer = KafkaConsumer(kafka_topic, bootstrap_servers=kafka_bootstrap_servers)
 
-# Initialize the PiCamera
-camera = picamera.PiCamera()
+# Create a directory to save images
+image_directory = 'received_images'
+if not os.path.exists(image_directory):
+    os.makedirs(image_directory)
 
 try:
-    while True:
-        # Capture an image from the camera
-        image_filename = 'image_pi1.jpg'  # You can customize the image filename set name role image_{pi name}
-        camera.capture(image_filename)
+    for message in consumer:
+        # Retrieve the image data from Kafka message
+        image_data = message.value
 
-        # Read the captured image
-        with open(image_filename, 'rb') as image_file:
-            image_data = image_file.read()
+        # Retrieve the original image filename from Kafka message's metadata
+        image_filename = message.key.decode('utf-8')
 
-        # Send the image to Kafka topic
-        key = 'pi1' # 파이별 해당하는 번호 부여
-        producer.send(kafka_topic, key=key.encode('utf-8'), value=image_data)
-        producer.flush()
+        # Split the filename to get the producer name and use it in the new filename
+        producer_name = image_filename  # Assuming the format is "image_producerName.jpg"
+        new_image_filename = f"image_{producer_name}_{message.offset}.jpg"
 
-        print(f"Image sent to Kafka topic '{kafka_topic}'")
+        # Generate a path to save the image in the image_directory
+        image_path = os.path.join(image_directory, new_image_filename)
 
-        # Wait for 5 seconds before capturing the next image
-        time.sleep(5)
+        # Save the image to the local file system
+        with open(image_path, 'wb') as image_file:
+            image_file.write(image_data)
+
+        print(f"Image received and saved as '{image_path}'")
+
+except KeyboardInterrupt:
+    print("Consumer interrupted by user.")
 
 finally:
-    # Clean up resources
-    camera.close()
-    producer.close()
+    consumer.close()
+
+
