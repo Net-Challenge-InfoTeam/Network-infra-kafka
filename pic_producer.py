@@ -15,7 +15,7 @@ camera = picamera.PiCamera()
 try:
     while True:
         # Capture an image from the camera
-        image_filename = 'image.jpg'  # You can customize the image filename
+        image_filename = 'image_pi1.jpg'  # You can customize the image filename set name role image_{pi name}
         camera.capture(image_filename)
         
         # Read the captured image
