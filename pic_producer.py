@@ -3,8 +3,8 @@ import picamera
 from kafka import KafkaProducer
 
 # Kafka configuration
-kafka_bootstrap_servers = 'your_kafka_broker_address:9092'  # Replace with your Kafka broker address
-kafka_topic = 'camera_images'
+kafka_bootstrap_servers = '10.32.103.147:9092'  # Replace with your Kafka broker address
+kafka_topic = 'pi1'
 
 # Create a Kafka producer instance
 producer = KafkaProducer(bootstrap_servers=kafka_bootstrap_servers)
@@ -15,7 +15,7 @@ camera = picamera.PiCamera()
 try:
     while True:
         # Capture an image from the camera
-        image_filename = 'image.jpg'  # You can customize the image filename
+        image_filename = 'image_pi1.jpg'  # You can customize the image filename
         camera.capture(image_filename)
         
         # Read the captured image
