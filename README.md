@@ -6,16 +6,30 @@
 
 해당하는 포트 다 개방해주고
 
-server.properties.sh 수정 치고
+server.properties.sh 수정해서 advtise쪽에 브로커 아이피 박기
 
-//
-sudo apt install libva-drm2 libpangoft2-1.0-0 libxvidcore4 libxkbcommon0 libchromaprint1 libpgm-5.3-0 libopus0 libwayland-cursor0 libpango-1.0-0 libbluray2 libsnappy1v5 libxrandr2 libthai0 libzvbi0 libnorm1 libpixman-1-0 libzmq5 libx265-192 libgraphite2-3 libxdamage1 libwayland-client0 libgtk-3-0 libsrt1.4-gnutls libxcursor1 libx264-160 libspeex1 libswscale5 libdav1d4 libmp3lame0 libgsm1 libatspi2.0-0 libxcb-render0 libavformat58 libvdpau1 libgme0 libcodec2-0.9 libwebpmux3 libshine3 libvorbis0a libsoxr0 libdrm2 libva-x11-2 libcairo-gobject2 libavutil56 libxfixes3 libvorbisfile3 librabbitmq4 libxrender1 libsodium23 libharfbuzz0b libtwolame0 libswresample3 libavcodec58 libxcomposite1 libwavpack1 libogg0 libepoxy0 libvorbisenc2 libxi6 libatlas3-base libgfortran5 libvpx6 libcairo2 libudfread0 libatk1.0-0 libgdk-pixbuf-2.0-0 libdatrie1 libmpg123-0 libxinerama1 libopenjp2-7 libaom0 libva2 libopenmpt0 libpangocairo-1.0-0 libwayland-egl1 libatk-bridge2.0-0 libtheora0 ocl-icd-libopencl1 libxcb-shm0 librsvg2-2 libssh-gcrypt-4
+---
 
-sudo pip3 install opencv-python
-
-test
-
-파이별로 토픽 따로 나눠서 하드하게 줍시다
+토픽생성
 sudo bin/kafka-topics.sh --create --bootstrap-server <NUC IP>:9092 --replication-factor 1 --partitions 1 --topic {topic_name}
-
+토픽목록
 kafka-topics.sh --list --bootstrap-server 10.32.103.147:9092
+
+---
+
+라즈베리파이 세팅법
+
+미러서버 - (http|rsync)://ftp.jaist.ac.jp/pub/Linux/raspbian-archive/raspbian
+sudo nano /etc/apt/sources.list
+
+라이브러리
+
+sudo apt install -y vim
+
+sudo apt install -y python3-pip
+
+sudo apt install -y default-jdk # 카프카 사용을 위한 것
+
+sudo pip3 install kafka-python
+
+wget http://archive.apache. org/dist/kafka/2.8.0/kafka_2.12-2.8.0.tgz
