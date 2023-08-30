@@ -1,34 +1,38 @@
-from kafka import KafkaConsumer
-import os
+import time
+import picamera
+from kafka import KafkaProducer
 
 # Kafka configuration
-kafka_bootstrap_servers = 'your_kafka_broker_address:9092'  # Replace with your Kafka broker address
-kafka_topic = 'camera_images'
+kafka_bootstrap_servers = '10.32.103.147:9092'  # Replace with your Kafka broker address
+kafka_topic = 'pi1' # 정한 토픽을 삽입
 
-# Create a Kafka consumer instance
-consumer = KafkaConsumer(kafka_topic, bootstrap_servers=kafka_bootstrap_servers)
+# Create a Kafka producer instance
+producer = KafkaProducer(bootstrap_servers=kafka_bootstrap_servers)
 
-# Create a directory to save images
-image_directory = 'received_images'
-if not os.path.exists(image_directory):
-    os.makedirs(image_directory)
+# Initialize the PiCamera
+camera = picamera.PiCamera()
 
 try:
-    for message in consumer:
-        # Retrieve the image data from Kafka message
-        image_data = message.value
-        
-        # Generate a unique image filename
-        image_filename = os.path.join(image_directory, f'{kafka_topic}_{message.offset}.jpg')
-        
-        # Save the image to the local file system
-        with open(image_filename, 'wb') as image_file:
-            image_file.write(image_data)
-        
-        print(f"Image received and saved as '{image_filename}'")
-        
-except KeyboardInterrupt:
-    print("Consumer interrupted by user.")
+    while True:
+        # Capture an image from the camera
+        image_filename = 'image_pi1.jpg'  # You can customize the image filename set name role image_{pi name}
+        camera.capture(image_filename)
+
+        # Read the captured image
+        with open(image_filename, 'rb') as image_file:
+            image_data = image_file.read()
+
+        # Send the image to Kafka topic
+        key = 'pi1' # 파이별 해당하는 번호 부여
+        producer.send(kafka_topic, key=key.encode('utf-8'), value=image_data)
+        producer.flush()
+
+        print(f"Image sent to Kafka topic '{kafka_topic}'")
+
+        # Wait for 5 seconds before capturing the next image
+        time.sleep(5)
 
 finally:
-    consumer.close()
+    # Clean up resources
+    camera.close()
+    producer.close()
