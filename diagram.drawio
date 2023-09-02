@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net" modified="2023-09-02T17:09:22.558Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" etag="KxaYTNzlc50zpykdNXh5" version="21.7.2" type="device">
+  <diagram name="페이지-1" id="5C_pNccL7wUZiCEKopKV">
+    <mxGraphModel dx="1434" dy="750" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="MgS_XxR5XETPS20qShzI-4" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;위험요소 이미지&lt;/font&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="MgS_XxR5XETPS20qShzI-1" target="MgS_XxR5XETPS20qShzI-2">
+          <mxGeometry x="-0.1515" y="-33" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MgS_XxR5XETPS20qShzI-1" value="&lt;font color=&quot;#3399ff&quot; style=&quot;font-size: 25px;&quot;&gt;&lt;b style=&quot;&quot;&gt;FE&lt;/b&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="418" y="127" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MgS_XxR5XETPS20qShzI-5" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;위험 요소 데이터&lt;/font&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="MgS_XxR5XETPS20qShzI-2" target="MgS_XxR5XETPS20qShzI-1">
+          <mxGeometry y="-51" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="508" y="222" />
+              <mxPoint x="508" y="222" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MgS_XxR5XETPS20qShzI-11" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;위험요소 이미지&lt;/font&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="MgS_XxR5XETPS20qShzI-2" target="MgS_XxR5XETPS20qShzI-10">
+          <mxGeometry x="0.3462" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MgS_XxR5XETPS20qShzI-2" value="&lt;font color=&quot;#00cc00&quot; style=&quot;font-size: 25px;&quot;&gt;&lt;b&gt;BE&lt;/b&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="418" y="253" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MgS_XxR5XETPS20qShzI-9" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;위험 요소 데이터&lt;/font&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="MgS_XxR5XETPS20qShzI-6" target="MgS_XxR5XETPS20qShzI-2">
+          <mxGeometry x="-0.3135" y="-12" relative="1" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MgS_XxR5XETPS20qShzI-6" value="&lt;font color=&quot;#ff8000&quot; style=&quot;font-size: 25px;&quot;&gt;DB&lt;/font&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.database;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="538" y="379" width="111" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="MgS_XxR5XETPS20qShzI-17" value="영상데이터" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" edge="1" parent="1" source="MgS_XxR5XETPS20qShzI-10" target="MgS_XxR5XETPS20qShzI-15">
+          <mxGeometry x="-0.3205" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MgS_XxR5XETPS20qShzI-10" value="&lt;font style=&quot;font-size: 25px;&quot;&gt;kafka&lt;/font&gt;" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+          <mxGeometry x="298" y="379" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="MgS_XxR5XETPS20qShzI-14" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;영상&lt;/font&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="MgS_XxR5XETPS20qShzI-13" target="MgS_XxR5XETPS20qShzI-10">
+          <mxGeometry x="-0.2903" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="238" y="419" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MgS_XxR5XETPS20qShzI-13" value="&lt;font style=&quot;font-size: 25px;&quot;&gt;CCTV&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="178" y="253" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MgS_XxR5XETPS20qShzI-12" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/boxicons-regular-vol-1/24/bx-cctv-128.png" vertex="1" parent="1">
+          <mxGeometry x="295" y="227" width="41" height="41" as="geometry" />
+        </mxCell>
+        <mxCell id="MgS_XxR5XETPS20qShzI-16" value="위험요소 데이터" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=14;" edge="1" parent="1" source="MgS_XxR5XETPS20qShzI-15" target="MgS_XxR5XETPS20qShzI-6">
+          <mxGeometry x="0.3449" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MgS_XxR5XETPS20qShzI-15" value="&lt;font color=&quot;#ff9933&quot; style=&quot;font-size: 25px;&quot;&gt;AI&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="418" y="525" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
