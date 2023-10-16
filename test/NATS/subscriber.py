@@ -26,7 +26,7 @@ async def main():
         print(f"Received a message on '{subject} {reply}': {data}")
         minio.fget_object(BUCKET_NAME, data, DEST_FOLDER + "/" + data)
         now = datetime.now()
-        dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+        dt_string = now.strftime("%d/%m/%Y %H:%M:%S.%f")
         f.write(f"{dt_string},{data}\n")
         f.flush()
         

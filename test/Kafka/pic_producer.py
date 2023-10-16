@@ -1,6 +1,7 @@
 import time
 import picamera
 from kafka import KafkaProducer
+from datetime import datetime
 
 # Kafka configuration
 kafka_bootstrap_servers = '10.32.103.147:9092'  # Replace with your Kafka broker address
