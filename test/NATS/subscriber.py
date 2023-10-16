@@ -1,23 +1,29 @@
 import asyncio
 import nats
-from nats.errors import TimeoutError, NoServersError
+from minio import Minio
+
+ACCESS_KEY = "node1"
+SECRET_KEY = "12345678"
+BUCKET_NAME = "stream"
+DEST_FOLDER = "D:\\competition\\net challenge\\Network-infra-kafka\\test\\image"
 
 async def main():
     nc = nats.NATS()
     
     await nc.connect("nats://10.32.187.188:4222")
+    minio = Minio('10.32.187.188:9000', access_key=ACCESS_KEY, secret_key=SECRET_KEY, secure=False)
+    minio.fget_object(BUCKET_NAME, "index-0_timestamp-2023-10-15-03-22-08.jpg", DEST_FOLDER + "/" + "index-0_timestamp-2023-10-15-03-22-08.jpg")
     
     async def message_handler(msg):
         subject = msg.subject
         reply = msg.reply
         data = msg.data.decode()
         print(f"Received a message on '{subject} {reply}': {data}")
-    
-    await nc.subscribe("foo", cb=message_handler)
-
-    # Terminate connection to NATS.
-    await nc.drain()
+        
+        
+    # Simple publisher and async subscriber via coroutine.
+    while True:
+        await nc.subscribe("foo", queue="worker", cb=message_handler)
 
 if __name__ == '__main__':
-    while True:
-        asyncio.run(main())
+    asyncio.run(main())
