@@ -13,7 +13,7 @@ async def main():
     nc = nats.NATS()
     await nc.connect("nats://10.32.187.188:4222")
     minio = Minio('10.32.187.188:9000', access_key=ACCESS_KEY, secret_key=SECRET_KEY, secure=False)
-    f = open("result02.csv", "a")
+    f = open("result01.csv", "a")
     print("Connected to NATS server, and Minio server")
     
     async def message_handler(msg):
