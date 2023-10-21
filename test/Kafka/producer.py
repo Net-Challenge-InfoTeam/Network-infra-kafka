@@ -20,7 +20,8 @@ try:
         ret, frame = cap.read()
         if not ret:
             break
-        c_time = datetime.now().strftime("%d/%m/%Y %H:%M:%S:%f") # will send on paylaod in nats
+        c_time = datetime.now().strftime("%d-%m-%Y-%H-%M-%S-%f") # will send on paylaod in nats
+            # Save the frame as a JPEG file
         filename = f'index-{frame_count}_timestamp-{c_time}.jpg'
         cv2.imwrite(filename, frame)
         
