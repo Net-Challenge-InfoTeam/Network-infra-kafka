@@ -20,11 +20,15 @@ try:
         ret, frame = cap.read()
         if not ret:
             break
+        filename = f'index-{frame_count}_timestamp-{c_time}.jpg'
+        cv2.imwrite(filename, frame)
+        
+        with open(filename, 'rb') as image_file:
+            image_data = image_file.read()
 
         c_time = datetime.now().strftime("%d/%m/%Y %H:%M:%S:%f") # will send on paylaod in nats
         # Save the frame as a JPEG file
-        filename = f'index-{frame_count}_timestamp-{c_time}.jpg'
-        producer.send(KAFKA_TOPIC, key=filename.encode('utf-8'), value=frame)
+        producer.send(KAFKA_TOPIC, key=filename.encode('utf-8'), value=image_data)
         producer.flush()
         
         frame_count += 1
